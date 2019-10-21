@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_161841) do
+ActiveRecord::Schema.define(version: 2019_10_21_171936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "concerts", force: :cascade do |t|
+    t.string "act_name"
+    t.string "act_image"
+    t.date "date"
+    t.string "venue_name"
+    t.string "venue_address"
+    t.string "festival"
+    t.string "genre"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,6 +36,11 @@ ActiveRecord::Schema.define(version: 2019_10_20_161841) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "pseudo"
+    t.string "city"
+    t.string "grade"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
